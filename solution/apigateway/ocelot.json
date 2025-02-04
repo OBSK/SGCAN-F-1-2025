@@ -1,0 +1,54 @@
+{
+    "Reroutes": [
+        {
+            "DownstreamPathTemplate": "/upload",
+            "UpstreamPathTemplate": "/apigateway/upload",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            },
+            "UpstreamHttpMethod": [
+                "POST"
+            ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 9020
+                }
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/notify",
+            "UpstreamPathTemplate": "/apigateway/notify",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            },
+            "UpstreamHttpMethod": [
+                "POST"
+            ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 9030
+                }
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/auth/register",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5041
+                }
+            ],
+            "UpstreamPathTemplate": "/auth/register",
+            "UpstreamHttpMethod": [
+                "POST"
+            ]
+        }
+    ]
+}
