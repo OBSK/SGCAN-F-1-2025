@@ -3294,11 +3294,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lenovo\\SGCAN\\SGCAN-F-1-2025-OBSK\\solution\\apigateway\\ApiGateway.csproj",
+      "projectUniqueName": "C:\\Users\\lenovo\\SGCAN-F-1-2025\\solution\\apigateway\\ApiGateway.csproj",
       "projectName": "ApiGateway",
-      "projectPath": "C:\\Users\\lenovo\\SGCAN\\SGCAN-F-1-2025-OBSK\\solution\\apigateway\\ApiGateway.csproj",
+      "projectPath": "C:\\Users\\lenovo\\SGCAN-F-1-2025\\solution\\apigateway\\ApiGateway.csproj",
       "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lenovo\\SGCAN\\SGCAN-F-1-2025-OBSK\\solution\\apigateway\\obj\\",
+      "outputPath": "C:\\Users\\lenovo\\SGCAN-F-1-2025\\solution\\apigateway\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config"

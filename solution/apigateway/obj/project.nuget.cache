@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2IXnI6oZiDM=",
+  "dgSpecHash": "oqHCIhametQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\lenovo\\SGCAN\\SGCAN-F-1-2025-OBSK\\solution\\apigateway\\ApiGateway.csproj",
+  "projectFilePath": "C:\\Users\\lenovo\\SGCAN-F-1-2025\\solution\\apigateway\\ApiGateway.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lenovo\\.nuget\\packages\\bouncycastle.cryptography\\2.3.1\\bouncycastle.cryptography.2.3.1.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
