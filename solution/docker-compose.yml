@@ -1,5 +1,4 @@
 services:
-
   react:
     container_name: f1_react
     build:
@@ -10,31 +9,34 @@ services:
     volumes:
       - ./react:/app
       - /app/node_modules
-      - /app/.next
     environment:
       - NODE_ENV=development
-    command: sh -c "pnpm install && pnpm dev"
+    command: ["npm", "run", "dev"]
     networks:
       - f1_network
 
-  hub:
-    container_name: f1_hub
+  apigateway:
     build:
-      context: ./hub
+      context: ./apigateway
       dockerfile: Dockerfile
+    container_name: f1_apigateway
     ports:
-      - "9010:5000"
-    volumes:
-      - ./hub/src:/app/src
-      - /app/bin
-      - /app/obj
+      - "9010:5041"
     environment:
+      - ASPNETCORE_URLS=http://+:5041
+      - DOTNET_DataProtection__KeyDirectory=/var/protection-keys
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Host=f1_postgres;Database=f1_database;Username=f1_sgcan;Password=f1_sgcan123456
+      - Jwt__Key=your_secret_key
+      - Jwt__Issuer=your_issuer
+      - Jwt__Audience=your_audience
+      - ConnectionStrings__DefaultConnection=Server=db;Database=my_database;User=root;Password=your_password;
+      - Redis__Connection=redis:6379
     depends_on:
-      - postgres
+      - mysql
+      - redis
     networks:
       - f1_network
+
 
   scraper:
     container_name: f1_scraper
@@ -65,6 +67,23 @@ services:
       - "9040:5432"
     restart: "always"
 
+  mysql:
+    image: mysql:latest
+    container_name: f1_mysql
+    hostname: f1_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "mypassword123$"
+      MYSQL_DATABASE: users
+      TZ: UTC
+    command: --default-time-zone=UTC
+    networks:
+      - f1_network
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "9041:3306"
+    restart: "always"
+
   redis:
     image: redis:6.2-alpine
     container_name: f1_redis
@@ -79,3 +98,8 @@ networks:
   f1_network:
     name: f1_network
     driver: bridge
+
+volumes:
+  mysql_data:
+    name: f1_mysql_data
+    driver: local
